@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Cumilative1.Models.Teacher>
+
+@foreach (Cumilative1.Models.Teacher Teacher in Model)
+{
+    <div>
+        <a href="/Teacher/Show/@Teacher.TeacherId">@Teacher.TeacherId @Teacher.TeacherFName @Teacher.TeacherLName</a>
+    </div>
+}
