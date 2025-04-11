@@ -1,4 +1,9 @@
 ﻿@model Cumilative1.Models.Teacher
 
-<h1>@Model.TeacherFName @Model.TeacherId</h1>
-<h1>@Model.TeacherFName @Model.TeacherLName</h1>
+<h2>Teacher Details</h2>
+<a href="/Teachers_Page/List">Back to List</a> <a class="alert-warning" href="/Teachers_Page/DeleteConfirm/@Model.TeacherId">Delete</a>
+
+<p><strong>ID:</strong> @Model.TeacherId</p>
+<p><strong>Name:</strong> @Model.TeacherFirstName @Model.TeacherLastName</p>
+<p><strong>Hire Date:</strong> @Model.HireDate.ToShortDateString()</p>
+<p><strong>Salary:</strong> $@Model.Salary</p>

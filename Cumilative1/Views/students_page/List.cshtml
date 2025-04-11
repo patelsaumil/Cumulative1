@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Cumilative1.Models.Student>
+
+<h1>Student List</h1>
+
+<a style="margin-bottom:10px;" href="/students_page/New">Add Student</a>
+
+
+
+@foreach (Cumilative1.Models.Student Student in Model)
+{
+    <div>
+        <a href="/students_page/Show/@Student.StudentId">@Student.StudentFirstName @Student.StudentLastName</a>
+    </div>
+}

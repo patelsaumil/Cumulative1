@@ -1,8 +1,20 @@
-﻿@model IEnumerable<Cumilative1.Models.Teacher>
+﻿
+@model IEnumerable<Cumilative1.Models.Teacher>
+
+<a style="margin-bottom:10px;" href="/Teachers_Page/New">Add Teacher Data</a>
+
+<form method="GET" action="/Teachers_Page/List">
+    <div>
+        <input type="text" name="SearchKey" />
+        <input type="submit" value="Search" />
+    </div>
+</form>
+
 
 @foreach (Cumilative1.Models.Teacher Teacher in Model)
 {
     <div>
-        <a href="/Teacher/Show/@Teacher.TeacherId">@Teacher.TeacherId @Teacher.TeacherFName @Teacher.TeacherLName</a>
+        <a href="/Teachers_Page/Show/@Teacher.TeacherId">@Teacher.TeacherId @Teacher.TeacherFirstName @Teacher.TeacherLastName</a>
     </div>
 }
+

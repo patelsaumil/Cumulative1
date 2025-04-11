@@ -1,16 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Cumilative1.Data;
+using Cumilative1.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Cumilative1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Cumilative1Context") ?? throw new InvalidOperationException("Connection string 'Cumilative1Context' not found.")));
 
-
+builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();    
 builder.Services.AddSwaggerGen();              
 
-builder.Services.AddSingleton<Cumilative1.Models.SchoolDbContext>(); 
+builder.Services.AddSingleton<Cumilative1.Models.SchoolDbContext>();
+builder.Services.AddScoped<TeacherAPIController>();
+
 
 var app = builder.Build();
 

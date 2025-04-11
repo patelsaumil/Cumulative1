@@ -1,0 +1,11 @@
+﻿@model Cumilative1.Models.Student
+
+<h1>Student all information</h1>
+
+
+<h1>@Model.StudentFirstName @Model.StudentLastName</h1>
+<a href="/students_page/List">Back to List</a> <a class="alert-warning" href="/students_page/DeleteConfirm/@Model.StudentId">Delete</a>
+<p>@Model.StudentFirstName</p>
+<p>@Model.StudentLastName</p>
+<p>@Model.StudentNumber</p>
+<p>@Model.EnrollmentDate.ToString("yyyy-M-d")</p>

@@ -1,0 +1,43 @@
+﻿public int StudentId { get; set; }
+        public string? StudentFirstName { get; set; }
+        public string? StudentLastName { get; set; }
+        public string? StudentNumber { get; set; }
+        public DateTime EnrollmentDate { get; set; }
+
+
+﻿<div id="containershow">
+    <nav>
+        <a class="navlink" href="/students_page/List">Back To Students</a>
+    </nav>
+
+
+    <h2>New Student</h2>
+    <form method="POST" action="/students_page/Create">
+        <div class="inputrow">
+            <label for="StudentId">Student Id:</label>
+            <input type="number" id="StudentId" name="StudentId" />
+        </div>
+
+        <div class="inputrow">
+            <label for="StudentFirstname">First Name:</label>
+            <input type="text" id="StudentFirstname" name="StudentFirstname" />
+        </div>
+        <div class="inputrow">
+            <label for="StudentLastname">Last Name:</label>
+            <input type="text" id="StudentLastname" name="StudentLastname" />
+        </div>
+
+        <div class="inputrow">
+            <label for="StudentNumber">Student Number:</label>
+            <input type="text" id="StudentNumber" name="StudentNumber" />
+        </div>
+        <div class="inputrow">
+            <label for="StudentDate">Enrol Date:</label>
+            <input type="datetime" id="EnrollmentDate" name="Enrollment Date" />
+        </div>
+
+        <div class="inputrow">
+            <input type="submit" value="Create Student" />
+        </div>
+    </form>
+</div>
