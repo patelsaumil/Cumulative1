@@ -1,0 +1,38 @@
+﻿
+    @model Cumilative1.Models.Student
+
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/students_page/Show/@Model.StudentId">Back</a>
+    </nav>
+    <h2>New Student</h2>
+    <form method="POST" action="/students_page/Update/@Model.StudentId">
+
+
+        <div class="inputrow">
+            <label for="StudentFirstName">First Name:</label>
+            <input type="text" id="StudentFirstName" name="StudentFirstName" value="@Model.StudentFirstName" />
+        </div>
+
+        <div class="inputrow">
+            <label for="StudentLastName">Last Name:</label>
+            <input type="text" id="StudentLastName" name="StudentLastName" value="@Model.StudentLastName" />
+        </div>
+
+        <div class="inputrow">
+            <label for="StudentNumber">Student Number:</label>
+            <input type="text" id="StudentNumber" name="StudentNumber" value="@Model.StudentNumber" />
+        </div>
+
+        <div class="inputrow">
+            <label for="EnrollmentDate">Enrol Date:</label>
+            <input type="date" id="EnrollmentDate" name="EnrollmentDate" value="@Model.EnrollmentDate" required />
+        </div>
+
+
+        <div class="inputrow">
+            <input type="submit" value="Update Student" />
+        </div>
+    </form>
+</div>
+

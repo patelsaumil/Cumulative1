@@ -207,6 +207,59 @@ namespace Cumilative1.Controllers
             return 0;
         }
 
+        // <summary>
+        // Updates an Teacher in the database. Data is Teacher object, request query contains ID
+        // </summary>
+        // <param name="TeacherData">Teacher Object</param>
+        // <param name="TeacherId">The Teacher ID primary key</param>
+        // <example>
+        // PUT: api/Teacher/UpdateTeacher/4
+        // Headers: Content-Type: application/json
+        // Request Body:
+        // {
+        //	    "TeacherFname":"saumil",
+        //	    "TeacherLname":"patel", 
+        // } -> 
+        // {
+        //     "TeacherId":4,
+        //	    "TeacherFname":"saumil",
+        //	    "TeacherLname":"patel",
+        //	    "TeacherHireDate":"2025-09-09",
+        //	    "TeacherSalary":"50"
+        // }
+        // </example>
+        // <returns>
+        // The updated Teacher object
+        // </returns>
+        [HttpPut(template: "UpdateTeacher/{TeacherId}")]
+        public Teacher UpdateTeacher(int TeacherId, [FromBody] Teacher TeacherData)
+        {
+            // 'using' will close the connection after the code executes
+            using (MySqlConnection Connection = _context.AccessDatabase())
+            {
+                Connection.Open();
+                //Establish a new command (query) for our database
+                MySqlCommand Command = Connection.CreateCommand();
+
+                // parameterize query
+
+                Command.CommandText = "update teachers set teacherfname=@teacherfname, teacherlname=@teacherlname, employeenumber=@employeenumber, hiredate=@hiredate , salary=@salary where teacherid=@id";
+                Command.Parameters.AddWithValue("@teacherfname", TeacherData.TeacherFirstName);
+                Command.Parameters.AddWithValue("@teacherlname", TeacherData.TeacherLastName);
+                Command.Parameters.AddWithValue("@employeenumber", TeacherData.EmpNumber);
+                Command.Parameters.AddWithValue("@hiredate", TeacherData.HireDate);
+                Command.Parameters.AddWithValue("@salary", TeacherData.Salary);
+
+
+                Command.Parameters.AddWithValue("@id", TeacherId);
+
+                Command.ExecuteNonQuery();
+
+            }
+
+            return FindTeacher(TeacherId);
+        }
+
 
 
     }
